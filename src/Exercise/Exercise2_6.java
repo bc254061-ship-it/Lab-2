@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class Exercise2_6 {
 	public static void main (String[] args) {
-		Scanner input = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
 		
 		System.out.print("Enter a number between 0 and 1000");
-		int number = input.nextInt();
+		Scanner input;
+		int number = scan.nextInt();
 		
 		int firstDigit = number % 10;
 		int remainingNumber = number / 10;
@@ -19,9 +20,15 @@ public class Exercise2_6 {
 		
 		int multiplication = firstDigit * secondDigit * thirdDigit;
 		
+		if (number < 10) {
+		    multiplication = firstDigit;
+		} else if (number < 100) {
+		    multiplication = firstDigit * secondDigit;
+		}
+		
 		System.out.println("The multiplication of all digits in" + number + "is" + multiplication);
 		
-		input.close();
+		scan.close();
 	
 	}
 
